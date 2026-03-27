@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ligier Agro | Sitio en construcción</title>
 
-  <!-- Fuente similar a la que querés -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,7 +29,6 @@
       color: white;
     }
 
-    /* Capa suave para que el texto se lea mejor */
     .overlay {
       position: absolute;
       inset: 0;
@@ -44,21 +42,34 @@
       z-index: 1;
     }
 
-    /* Logo arriba a la izquierda */
-    .logo {
+    /* Logo y bandera arriba a la derecha */
+    .logo-side {
       position: absolute;
-      top: 28px;
-      left: 36px;
+      top: 26px;
+      right: 34px;
       z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
     }
 
-    .logo img {
-      width: min(220px, 28vw);
+    /* 40% más chico aprox */
+    .logo-side img.logo {
+      width: min(132px, 16vw);
       height: auto;
       display: block;
     }
 
-    /* Caja principal */
+    .logo-side img.flag {
+      width: min(42px, 5vw);
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+    }
+
     .hero-card {
       position: absolute;
       left: 50%;
@@ -95,19 +106,20 @@
 
     .hero-button {
       display: inline-block;
-      background: #63b400;
+      background: rgba(99, 180, 0, 0.95);
       color: white;
       text-decoration: none;
       font-size: clamp(1.1rem, 1.5vw, 1.5rem);
       font-weight: 700;
       padding: 16px 34px;
       border-radius: 16px;
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
       box-shadow: 0 8px 18px rgba(0,0,0,0.22);
     }
 
     .hero-button:hover {
-      background: #589f00;
+      background: rgba(88, 159, 0, 0.72);
+      opacity: 0.72;
       transform: translateY(-2px);
     }
 
@@ -116,13 +128,18 @@
     }
 
     @media (max-width: 768px) {
-      .logo {
-        top: 22px;
-        left: 20px;
+      .logo-side {
+        top: 18px;
+        right: 18px;
+        gap: 8px;
       }
 
-      .logo img {
-        width: 160px;
+      .logo-side img.logo {
+        width: 108px;
+      }
+
+      .logo-side img.flag {
+        width: 36px;
       }
 
       .hero-card {
@@ -150,17 +167,16 @@
 <body>
   <div class="overlay"></div>
 
-  <!-- Logo -->
-  <div class="logo">
-    <img src="logo.png" alt="Ligier Agro" />
+  <div class="logo-side">
+    <img class="logo" src="logo.png" alt="Ligier Agro" />
+    <img class="flag" src="banderauruguay.png" alt="Bandera de Uruguay" />
   </div>
 
-  <!-- Contenido principal -->
   <main class="hero-card">
     <h1 class="hero-title">Sitio en construcción</h1>
     <p class="hero-subtitle">Próximamente estaremos online</p>
     <a class="hero-button" href="https://www.ligieragro.com.ar/" target="_blank" rel="noopener noreferrer">
-      Ir a ligieragro.com.ar
+      Ir a Ligier Agro
     </a>
   </main>
 </body>
